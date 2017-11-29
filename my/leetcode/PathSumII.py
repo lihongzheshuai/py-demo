@@ -37,24 +37,18 @@ class Solution:
         result = []
         if root is None:
             return result
-        curVal = root.val
-        subSum = sum - curVal
-        if root.left is None and root.right is None and subSum == 0:
-            return [[curVal]]
+        cur_val = root.val
+        sub_sum = sum - cur_val
+        if root.left is None and root.right is None and sub_sum == 0:
+            return [[cur_val]]
+        left_result = []
         if root.left is not None:
-            left_result = list(self.pathSum(root.left, subSum))
-            if len(left_result) != 0:
-                for path in left_result:
-                    path = list(path)
-                    path.insert(0, curVal)
-                    result.append(path)
+            left_result = self.pathSum(root.left, sub_sum)
         if root.right is not None:
-            right_result = list(self.pathSum(root.right, subSum))
-            if len(right_result) != 0:
-                for path in right_result:
-                    path = list(path)
-                    path.insert(0, curVal)
-                    result.append(path)
+            left_result.extend(self.pathSum(root.right, sub_sum))
+        for path in left_result:
+            path.insert(0, cur_val)
+            result.append(path)
         return result
 
 
