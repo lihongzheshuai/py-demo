@@ -46,12 +46,26 @@ class Solution:
                 for path in left_result:
                     path = list(path)
                     path.insert(0, curVal)
-                result.append(path)
+                    result.append(path)
         if root.right is not None:
             right_result = list(self.pathSum(root.right, subSum))
             if len(right_result) != 0:
                 for path in right_result:
                     path = list(path)
                     path.insert(0, curVal)
-                result.append(path)
+                    result.append(path)
         return result
+
+
+from my.leetcode.TreeNode import TreeNode
+
+tree = TreeNode(1)
+one_left = TreeNode(2)
+one_right = TreeNode(2)
+tree.left = one_left
+tree.right = one_right
+one_left.left = TreeNode(3)
+one_left.right = TreeNode(3)
+one_right.left = TreeNode(3)
+one_right.right = TreeNode(3)
+print(Solution().pathSum(tree, 6))
