@@ -25,6 +25,7 @@ return
 #         self.left = None
 #         self.right = None
 
+# author li.hzh 2017-11-29 23:34
 class Solution:
     def pathSum(self, root, sum):
         """
