@@ -33,11 +33,11 @@ class Solution:
         :rtype:
          List[List[int]]
         """
-        result = [[]]
+        result = []
         if root is None:
             return result
         curVal = root.val
-        subSum = curVal - curVal
+        subSum = sum - curVal
         if root.left is None and root.right is None and subSum == 0:
             return [[curVal]]
         if root.left is not None:
@@ -47,8 +47,6 @@ class Solution:
                     path = list(path)
                     path.insert(0, curVal)
                 result.append(path)
-            else:
-                return [[]]
         if root.right is not None:
             right_result = list(self.pathSum(root.right, subSum))
             if len(right_result) != 0:
@@ -56,6 +54,4 @@ class Solution:
                     path = list(path)
                     path.insert(0, curVal)
                 result.append(path)
-            else:
-                return [[]]
-
+        return result
