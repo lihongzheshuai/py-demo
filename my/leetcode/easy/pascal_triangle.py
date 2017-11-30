@@ -21,3 +21,13 @@ class Solution:
         :type numRows: int
         :rtype: List[List[int]]
         """
+        if numRows == 0:
+            return []
+        last_row = [1]
+        result = [last_row]
+        for row in range(2, numRows):
+            for i in range(len(last_row)):
+                todo = 1
+
+
+
