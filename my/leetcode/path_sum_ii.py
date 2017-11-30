@@ -52,7 +52,7 @@ class Solution:
         return result
 
 
-from my.leetcode.TreeNode import TreeNode
+from my.leetcode.treenode import TreeNode
 
 tree = TreeNode(1)
 one_left = TreeNode(2)
