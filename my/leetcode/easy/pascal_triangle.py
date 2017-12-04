@@ -25,9 +25,13 @@ class Solution:
             return []
         last_row = [1]
         result = [last_row]
-        for row in range(2, numRows):
-            for i in range(len(last_row)):
-                todo = 1
+        for row in range(2, numRows + 1):
+            cur_row = [last_row[0]]
+            for i in range(1, len(last_row)):
+                cur_row.append(last_row[i] + last_row[i - 1])
+            cur_row.append(last_row[len(last_row) - 1])
+            last_row = cur_row
+            result.append(cur_row)
+        return result
 
-
-
+print(Solution().generate(5))
