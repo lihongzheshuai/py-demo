@@ -43,4 +43,22 @@ arr[[1,2,3,0]][:,[1,2,0,3]]
 arr[np.ix_([0,1],[1,0])]
 #%%
 np.dot(arr.T,arr)
-np.meshgrid(np.array([1,2]),np.array([3,4]))
+#%%
+xs,ys = np.meshgrid(np.array([1,2,3,4]),np.array([3,4,5,6]))
+import matplotlib.pyplot as plt
+z = np.sqrt(xs ** 2 + ys ** 2)
+z
+#%%
+plt.imshow(z, cmap = plt.cm.gray);plt.colorbar()
+#%%
+arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
+arr
+arr.mean()
+arr.sum()
+#0，1代表坐标轴
+arr.cumsum(0)
+#%%
+ran_arr = np.random.randn(4,4)
+ran_arr.sort(1)
+ran_arr
+
